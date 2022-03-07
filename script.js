@@ -18,10 +18,10 @@ Prendendo come riferimento la card di esempio presente nell'html, stampiamo dina
             - card.append('img')
 
         - creiamo il contenitore 'card-text'
-            - let text = createElement(div)
-            - text.classList.add('card-text')
-            - text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${{arrMembers[i].ruolo}</p>`;
-            - card.append('text')
+            let text = createElement(div)
+            text.classList.add('card-text')
+            text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${{arrMembers[i].ruolo}</p>`;
+            card.append('text')
 
     
        
@@ -64,3 +64,24 @@ const arrMembers = [
     }
 
 ]
+
+ const containerCard = document.querySelector('.team-container');
+
+ for (i= 0; i < arrMembers.length; i++){
+
+    let card = document.createElement('div');
+    card.classList.add('team-card');
+    containerCard.append(card);
+
+    let img = document.createElement('div');
+    img.classList.add('card-image');
+    card.append(img);
+    img.innerHTML = `<img src= ${arrMembers[i].foto}></img>`;
+
+    let text = document.createElement('div');
+    text.classList.add('card-text');
+    card.append(text);
+    text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${arrMembers[i].ruolo} </p>`;
+
+    
+ }
