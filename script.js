@@ -68,7 +68,53 @@ const arrMembers = [
  const containerCard = document.querySelector('.team-container');
 
  for (i= 0; i < arrMembers.length; i++){
+    createCard();
+    // let card = document.createElement('div');
+    // card.classList.add('team-card');
+    // containerCard.append(card);
 
+    // let img = document.createElement('div');
+    // img.classList.add('card-image');
+    // card.append(img);
+    // img.innerHTML = `<img src= ${arrMembers[i].foto}></img>`;
+
+    // let text = document.createElement('div');
+    // text.classList.add('card-text');
+    // card.append(text);
+    // text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${arrMembers[i].ruolo} </p>`;
+
+    
+ }
+
+// ********* BONUS *********
+/* 
+  Utilizziamo gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un nuovo oggetto, il quale viene inserito nell'array iniziale, e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
+*/
+
+
+const addBtn = document.getElementById('addMemberButton');
+let inputName = document.getElementById('name');
+let inputImg = document.getElementById('image');
+let inputRole = document.getElementById('role');
+
+addBtn.addEventListener('click', function(){
+    arrMembers.push(
+        {
+        foto: inputImg.value,
+        nome: inputName.value,
+        ruolo: inputRole.value,
+        }
+    );
+    createCard()
+    console.log(arrMembers);
+
+    inputImg.value = "";
+    inputName.value = "";
+    inputRole.value = "";
+
+})
+
+function createCard(){
     let card = document.createElement('div');
     card.classList.add('team-card');
     containerCard.append(card);
@@ -83,5 +129,5 @@ const arrMembers = [
     card.append(text);
     text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${arrMembers[i].ruolo} </p>`;
 
-    
- }
+
+}
