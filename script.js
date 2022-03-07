@@ -3,17 +3,27 @@
 Viene fornito un layout di base. Come prima cosa nel file js definitevi un array di oggetti che rappresentano i membro del team (prendete i dati dallo screen fornito). Ogni membro deve avere le informazioni necessarie per stampare la relativa card: Nome, Ruolo e Foto.
 Prendendo come riferimento la card di esempio presente nell'html, stampiamo dinamicamente una card per ogni membro del team.
 
-- Definire un array con tutti i membri del team
-    - Defisci un membro del team con un oggetto
-        -Definisci ogni caratteristica dell'oggetto con una variabile
 
 - Stampiamo le card
-    let card;
-    let cardContainer = document.querySelector('.team-container');
-    let MembersAdd = 0;
-    - while (MembersAdd < array){
-       card = document.createElement(.div);
-       card.classList.add('team-card');
+    - creiamo una variabile contenitore per appendere le carte (Const containerCard = document.querySelector('.team-container'))
+    - Per ogni membro (ciclo for) creiamo i contenitori per le informazioni
+        - creiamo il contenitore 'team-card';
+            - let card = createElement(div)
+            - card.classList.add('team-card')
+            - containerCard.append('card')
+        - creiamo il contenitore 'card-image'
+            - let img = createElement(div)
+            - img.classList.add('card-img')
+            - img.innerHTML = `<img src= ${arrMembers[i].foto}></img>`;
+            - card.append('img')
+
+        - creiamo il contenitore 'card-text'
+            - let text = createElement(div)
+            - text.classList.add('card-text')
+            - text.innerHTML =` <h3>${arrMembers[i].nome}</h3> <p>${{arrMembers[i].ruolo}</p>`;
+            - card.append('text')
+
+    
        
     }
 
